@@ -28,8 +28,11 @@ def poland_cases_by_date(day: int, month: int, year: int = 2020) -> int:
     :return: Number of cases on a given date as an integer
     """
     # Your code goes here (remove pass)
-    result = confirmed_cases.loc[confirmed_cases["Country/Region"]=="Poland"][f"{month}/{day}/20"].values[0]
-    return result
+    '''result = confirmed_cases.loc[confirmed_cases["Country/Region"]=="Poland"][f"{month}/{day}/20"].values[0]
+    return result'''
+    result = confirmed_cases.loc[confirmed_cases["Country/Region"]
+                                 == "Poland"][f"{month}/{day}/{year-2000}"]
+    return result.values[0]
 
 
 def top5_countries_by_date(day: int, month: int, year: int = 2020) -> List[str]:
